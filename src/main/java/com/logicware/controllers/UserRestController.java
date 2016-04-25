@@ -6,6 +6,7 @@ package com.logicware.controllers;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,9 +24,10 @@ import com.logicware.repositories.UserRepository;
  */
 @RestController
 @RequestMapping("/user")
+@ComponentScan("com.logicware.main")
 public class UserRestController {
 	
-	@Autowired UserRepository userRepository;
+	@Autowired private UserRepository userRepository;
 	
 	@RequestMapping(value="/getAll", method=RequestMethod.GET)
 	Collection<User> getAll(){
