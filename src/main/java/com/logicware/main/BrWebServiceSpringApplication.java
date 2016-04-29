@@ -37,8 +37,6 @@ public class BrWebServiceSpringApplication {
 	}
 }
 
-
-
 /*@Component
 class CommandLineRun implements CommandLineRunner{
 	
@@ -50,6 +48,7 @@ class CommandLineRun implements CommandLineRunner{
 			System.out.println(u.getCorreo());
 	}
 }*/
+
 
 @EnableWebMvc
 @ComponentScan("org.springframework.security.samples.mvc")

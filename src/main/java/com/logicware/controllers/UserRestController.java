@@ -24,7 +24,6 @@ import com.logicware.repositories.UserRepository;
  */
 @RestController
 @RequestMapping("/user")
-@ComponentScan("com.logicware.main")
 public class UserRestController {
 	
 	@Autowired private UserRepository userRepository;

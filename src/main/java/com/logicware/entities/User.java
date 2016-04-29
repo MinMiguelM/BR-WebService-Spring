@@ -3,9 +3,13 @@
  */
 package com.logicware.entities;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  * @author ASUS
@@ -17,6 +21,9 @@ public class User {
 	@Id
 	@GeneratedValue
 	private Long id;
+	
+	@OneToMany(mappedBy="user")
+	private Collection<Establishment> establishment = new ArrayList(); 
 	
 	private String correo;
 	private String nombre;
@@ -53,6 +60,20 @@ public class User {
 		this.rol = rol;
 		this.link_facebook = link_facebook;
 		this.token_facebook = token_facebook;
+	}
+
+	/**
+	 * @return the establishment
+	 */
+	public Collection<Establishment> getEstablishment() {
+		return establishment;
+	}
+
+	/**
+	 * @param establishment the establishment to set
+	 */
+	public void setEstablishment(Collection<Establishment> establishment) {
+		this.establishment = establishment;
 	}
 
 	/**
