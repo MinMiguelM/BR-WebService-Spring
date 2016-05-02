@@ -31,7 +31,7 @@ public class User {
 	private String num_cel;
 	private String rol;
 	private String link_facebook;
-	private String token_facebook;
+	private String token;
 	
 	/**
 	 * 
@@ -51,7 +51,7 @@ public class User {
 	 * @param token_facebook
 	 */
 	public User(String correo, String nombre, String password, String num_cel, String rol, String link_facebook,
-			String token_facebook) {
+			String token) {
 		super();
 		this.correo = correo;
 		this.nombre = nombre;
@@ -59,7 +59,7 @@ public class User {
 		this.num_cel = num_cel;
 		this.rol = rol;
 		this.link_facebook = link_facebook;
-		this.token_facebook = token_facebook;
+		this.token = token;
 	}
 
 	/**
@@ -177,15 +177,15 @@ public class User {
 	/**
 	 * @return the token_facebook
 	 */
-	public String getToken_facebook() {
-		return token_facebook;
+	public String getToken() {
+		return token;
 	}
 
 	/**
 	 * @param token_facebook the token_facebook to set
 	 */
-	public void setToken_facebook(String token_facebook) {
-		this.token_facebook = token_facebook;
+	public void setToken(String token) {
+		this.token = token;
 	}
 
 }
