@@ -38,7 +38,7 @@ public class UserRestController {
 		return userRepository.save(input);
 	}
 	
-	@RequestMapping(value="/getByCorreo/{correo}", method=RequestMethod.GET)
+	@RequestMapping(value="/getByCorreo/\"{correo}\"", method=RequestMethod.GET)
 	User getByCorreo(@PathVariable String correo){
 		return userRepository.findByCorreo(correo);
 	}

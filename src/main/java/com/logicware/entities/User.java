@@ -6,16 +6,24 @@ package com.logicware.entities;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.UniqueConstraint;
 
 /**
  * @author ASUS
  *
  */
 @Entity
+@NamedQueries({
+@NamedQuery(name = "User.findByToken",query = "select u from User u where u.token = ?"),
+@NamedQuery(name = "User.findByCorreo",query = "select u from User u where u.correo = ?")
+})
 public class User {
 	
 	@Id
@@ -24,13 +32,14 @@ public class User {
 	
 	@OneToMany(mappedBy="user")
 	private Collection<Establishment> establishment = new ArrayList(); 
-	
+	@Column(unique = true)
 	private String correo;
 	private String nombre;
 	private String password;
 	private String num_cel;
 	private String rol;
 	private String link_facebook;
+	@Column(unique = true)
 	private String token;
 	
 	/**
