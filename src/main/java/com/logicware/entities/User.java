@@ -21,8 +21,8 @@ import javax.persistence.UniqueConstraint;
  */
 @Entity
 @NamedQueries({
-@NamedQuery(name = "User.findByToken",query = "select u from User u where u.token = ?"),
-@NamedQuery(name = "User.findByCorreo",query = "select u from User u where u.correo = ?")
+	@NamedQuery(name = "User.findByToken",query = "select u from User u where u.token = ?"),
+	@NamedQuery(name = "User.findByCorreo",query = "select u from User u where u.correo = ?")
 })
 public class User {
 	
