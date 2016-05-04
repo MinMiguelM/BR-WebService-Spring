@@ -16,4 +16,5 @@ import com.logicware.entities.User;
 public interface UserRepository extends JpaRepository<User,Long>{
 	
 	User findByCorreo(String correo);
+	User findByToken(String token);
 }

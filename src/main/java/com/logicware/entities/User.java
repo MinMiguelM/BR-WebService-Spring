@@ -3,28 +3,44 @@
  */
 package com.logicware.entities;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.UniqueConstraint;
 
 /**
  * @author ASUS
  *
  */
 @Entity
+@NamedQueries({
+@NamedQuery(name = "User.findByToken",query = "select u from User u where u.token = ?"),
+@NamedQuery(name = "User.findByCorreo",query = "select u from User u where u.correo = ?")
+})
 public class User {
 	
 	@Id
 	@GeneratedValue
 	private Long id;
 	
+	@OneToMany(mappedBy="user")
+	private Collection<Establishment> establishment = new ArrayList(); 
+	@Column(unique = true)
 	private String correo;
 	private String nombre;
 	private String password;
 	private String num_cel;
 	private String rol;
 	private String link_facebook;
-	private String token_facebook;
+	@Column(unique = true)
+	private String token;
 	
 	/**
 	 * 
@@ -44,7 +60,7 @@ public class User {
 	 * @param token_facebook
 	 */
 	public User(String correo, String nombre, String password, String num_cel, String rol, String link_facebook,
-			String token_facebook) {
+			String token) {
 		super();
 		this.correo = correo;
 		this.nombre = nombre;
@@ -52,7 +68,21 @@ public class User {
 		this.num_cel = num_cel;
 		this.rol = rol;
 		this.link_facebook = link_facebook;
-		this.token_facebook = token_facebook;
+		this.token = token;
+	}
+
+	/**
+	 * @return the establishment
+	 */
+	public Collection<Establishment> getEstablishment() {
+		return establishment;
+	}
+
+	/**
+	 * @param establishment the establishment to set
+	 */
+	public void setEstablishment(Collection<Establishment> establishment) {
+		this.establishment = establishment;
 	}
 
 	/**
@@ -156,15 +186,15 @@ public class User {
 	/**
 	 * @return the token_facebook
 	 */
-	public String getToken_facebook() {
-		return token_facebook;
+	public String getToken() {
+		return token;
 	}
 
 	/**
 	 * @param token_facebook the token_facebook to set
 	 */
-	public void setToken_facebook(String token_facebook) {
-		this.token_facebook = token_facebook;
+	public void setToken(String token) {
+		this.token = token;
 	}
 
 }

@@ -24,7 +24,6 @@ import com.logicware.repositories.UserRepository;
  */
 @RestController
 @RequestMapping("/user")
-@ComponentScan("com.logicware.main")
 public class UserRestController {
 	
 	@Autowired private UserRepository userRepository;
@@ -39,9 +38,14 @@ public class UserRestController {
 		return userRepository.save(input);
 	}
 	
-	@RequestMapping(value="getByCorreo/{correo}", method=RequestMethod.GET)
+	@RequestMapping(value="/getByCorreo/\"{correo}\"", method=RequestMethod.GET)
 	User getByCorreo(@PathVariable String correo){
 		return userRepository.findByCorreo(correo);
+	}
+	
+	@RequestMapping(value="/getByToken/{token}", method=RequestMethod.GET)
+	User getByToken(@PathVariable String token){
+		return userRepository.findByToken(token);
 	}
 
 }
