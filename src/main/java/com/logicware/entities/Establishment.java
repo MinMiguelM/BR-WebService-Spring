@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 
 /**
  * @author miguel
- *
+ * Entidad que representara una en
  */
 @Entity
 public class Establishment {

@@ -17,7 +17,7 @@ import javax.persistence.UniqueConstraint;
 
 /**
  * @author ASUS
- *
+ * Entidad usuario que es representada por varios atributos
  */
 @Entity
 @NamedQueries({
