@@ -77,5 +77,9 @@ public class UserRestController {
 	User getByToken(@PathVariable String token){
 		return userRepository.findByToken(token);
 	}
-
+	
+	/*@RequestMapping(value="/update", method=RequestMethod.PUT)
+	User update(@RequestBody User user){
+		return userRepository.update(user);
+	}*/
 }

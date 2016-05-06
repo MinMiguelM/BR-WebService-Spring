@@ -23,6 +23,7 @@ import javax.persistence.UniqueConstraint;
 @NamedQueries({
 	@NamedQuery(name = "User.findByToken",query = "select u from User u where u.token = ?"),
 	@NamedQuery(name = "User.findByCorreo",query = "select u from User u where u.correo = ?")
+	//@NamedQuery(name = "User.updateToken",query = "update User u set u.token = ? where u.correo = ?")
 })
 public class User {
 	
