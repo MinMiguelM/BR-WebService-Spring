@@ -35,13 +35,4 @@ public interface UserRepository extends JpaRepository<User,Long>{
 	 * 				el momento que se registro.
 	 */
 	User findByToken(String token);
-	
-	/**
-	 * Nombre: updateToken
-	 * Entradas: el nuevo token a ser actualizado, y el correo del usuario
-	 * 			 a quien se le sera actualizado el token
-	 * Salidas: El usuario con la actualizacion realizada
-	 * Descripcion: Dado un correo actualiza el token de dicho usuario
-	 */
-	//User updateToken(String newToken, String correo);
 }
