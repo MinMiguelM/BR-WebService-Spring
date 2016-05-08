@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.logicware</groupId>
-	<artifactId>demo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>BR-WebService</artifactId>
+	<version>RELEASE 1.0</version>
 	<packaging>jar</packaging>
 
 	<name>BR-WebService-Spring</name>
-	<description>Demo project for Spring Boot</description>
+	<description>WebService for BR-App</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
