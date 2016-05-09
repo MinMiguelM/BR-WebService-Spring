@@ -28,7 +28,8 @@ public class User {
 	
 	@Id
 	@GeneratedValue
-	private Long id;
+	@Column(nullable = false)
+	private Long idUser;
 	
 	@OneToMany(mappedBy="user")
 	private Collection<Establishment> establishment = new ArrayList(); 
@@ -51,27 +52,6 @@ public class User {
 	}
 
 	/**
-	 * @param correo
-	 * @param nombre
-	 * @param password
-	 * @param num_cel
-	 * @param rol
-	 * @param link_facebook
-	 * @param token_facebook
-	 */
-	public User(String correo, String nombre, String password, String num_cel, String rol, String link_facebook,
-			String token) {
-		super();
-		this.correo = correo;
-		this.nombre = nombre;
-		this.password = password;
-		this.num_cel = num_cel;
-		this.rol = rol;
-		this.link_facebook = link_facebook;
-		this.token = token;
-	}
-
-	/**
 	 * @return the establishment
 	 */
 	public Collection<Establishment> getEstablishment() {
@@ -88,15 +68,15 @@ public class User {
 	/**
 	 * @return the id
 	 */
-	public Long getId() {
-		return id;
+	public Long getIdUser() {
+		return idUser;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdUser(Long id) {
+		this.idUser = id;
 	}
 
 	/**

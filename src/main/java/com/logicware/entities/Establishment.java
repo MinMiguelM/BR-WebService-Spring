@@ -3,23 +3,34 @@
  */
 package com.logicware.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
- * @author miguel
- * Entidad que representara una en
+ * Entidad que representara un establecimiento.
  */
 @Entity
+@NamedQueries({
+	@NamedQuery(name = "Establishment.findByNombre",query= "select e.nombre AS nombre,e.ubicacion AS ubicacion,e.calificacionPromedio AS calificacionPromedio  from Establishment e where e.nombre like ?")
+})
 public class Establishment {
 	
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Long idEstablishment;
+	
+	@Id
+	@Column(nullable = false, insertable = false, updatable = false)
+	private Long idUser;
 	
 	@ManyToOne
+	@JoinColumn(name="idUser")
 	private User user;
 	
 	private String nombre;
@@ -37,7 +48,7 @@ public class Establishment {
 	 * @param descripcion
 	 * @param horario
 	 */
-	public Establishment(String nombre, String ubicacion, double calificacionPromedio, String tematica,
+	/*public Establishment(String nombre, String ubicacion, double calificacionPromedio, String tematica,
 			String descripcion, String horario) {
 		super();
 		this.nombre = nombre;
@@ -46,7 +57,7 @@ public class Establishment {
 		this.tematica = tematica;
 		this.descripcion = descripcion;
 		this.horario = horario;
-	}
+	}*/
 
 	/**
 	 * @param user
@@ -57,7 +68,7 @@ public class Establishment {
 	 * @param descripcion
 	 * @param horario
 	 */
-	public Establishment(User user, String nombre, String ubicacion, double calificacionPromedio, String tematica,
+	/*public Establishment(User user, String nombre, String ubicacion, double calificacionPromedio, String tematica,
 			String descripcion, String horario) {
 		super();
 		this.user = user;
@@ -67,20 +78,35 @@ public class Establishment {
 		this.tematica = tematica;
 		this.descripcion = descripcion;
 		this.horario = horario;
-	}
+	}*/
 
 	/**
 	 * @return the id
 	 */
-	public Long getId() {
-		return id;
+	public Long getIdEstablishment() {
+		return idEstablishment;
+	}
+
+	/**
+	 * @return the idUser
+	 */
+	public Long getIdUser() {
+		return idUser;
+	}
+
+	
+	/**
+	 * @param idUser to set.
+	 */
+	public void setIdUser(Long idUser) {
+		this.idUser = idUser;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdEstablishment(Long id) {
+		this.idEstablishment = id;
 	}
 
 	/**
