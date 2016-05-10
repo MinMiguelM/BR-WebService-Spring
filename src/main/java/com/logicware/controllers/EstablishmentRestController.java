@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.logicware.controllers;
 
 import java.util.Collection;

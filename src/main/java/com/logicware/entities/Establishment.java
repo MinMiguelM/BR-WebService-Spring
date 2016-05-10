@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.logicware.entities;
 
 import java.io.Serializable;
@@ -26,10 +23,6 @@ public class Establishment implements Serializable{
 	@Id
 	@GeneratedValue
 	private Long idEstablishment;
-	
-	@Id
-	@Column(nullable = false, insertable = false, updatable = false)
-	private Long idUser;
 	
 	@JoinColumn(name="ID")
 	@ManyToOne
@@ -87,21 +80,6 @@ public class Establishment implements Serializable{
 	 */
 	public Long getIdEstablishment() {
 		return idEstablishment;
-	}
-
-	/**
-	 * @return the idUser
-	 */
-	public Long getIdUser() {
-		return idUser;
-	}
-
-	
-	/**
-	 * @param idUser to set.
-	 */
-	public void setIdUser(Long idUser) {
-		this.idUser = idUser;
 	}
 
 	/**

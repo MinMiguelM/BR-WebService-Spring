@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.logicware.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
