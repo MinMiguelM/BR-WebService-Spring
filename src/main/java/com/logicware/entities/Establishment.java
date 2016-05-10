@@ -3,6 +3,8 @@
  */
 package com.logicware.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +21,7 @@ import javax.persistence.NamedQuery;
 @NamedQueries({
 	@NamedQuery(name = "Establishment.findByNombre",query= "select e.nombre AS nombre,e.ubicacion AS ubicacion,e.calificacionPromedio AS calificacionPromedio  from Establishment e where e.nombre like ?")
 })
-public class Establishment {
+public class Establishment implements Serializable{
 	
 	@Id
 	@GeneratedValue
@@ -29,8 +31,8 @@ public class Establishment {
 	@Column(nullable = false, insertable = false, updatable = false)
 	private Long idUser;
 	
+	@JoinColumn(name="ID")
 	@ManyToOne
-	@JoinColumn(name="idUser")
 	private User user;
 	
 	private String nombre;

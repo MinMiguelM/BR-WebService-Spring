@@ -3,13 +3,17 @@
  */
 package com.logicware.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -24,157 +28,133 @@ import javax.persistence.UniqueConstraint;
 	@NamedQuery(name = "User.findByToken",query = "select u from User u where u.token = ?"),
 	@NamedQuery(name = "User.findByCorreo",query = "select u from User u where u.correo = ?")
 })
-public class User {
+public class User implements Serializable{
 	
 	@Id
 	@GeneratedValue
-	@Column(nullable = false)
-	private Long idUser;
-	
-	@OneToMany(mappedBy="user")
-	private Collection<Establishment> establishment = new ArrayList(); 
+	@Column(name = "ID")
+	private long id;
+	private String nombre;
 	@Column(unique = true)
 	private String correo;
-	private String nombre;
-	private String password;
-	private String num_cel;
-	private String rol;
-	private String link_facebook;
+	private String telefono;
 	@Column(unique = true)
 	private String token;
-	
-	/**
-	 * 
-	 */
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @return the establishment
-	 */
-	public Collection<Establishment> getEstablishment() {
-		return establishment;
-	}
-
-	/**
-	 * @param establishment the establishment to set
-	 */
-	public void setEstablishment(Collection<Establishment> establishment) {
-		this.establishment = establishment;
-	}
-
+	private boolean link_facebook;
+	private String contrasena;
+	private String tipo;
+	@Lob
+	private byte[] imagen;
+	@OneToMany(mappedBy = "user")
+	private Collection<Establishment> establecimientos ;
 	/**
 	 * @return the id
 	 */
-	public Long getIdUser() {
-		return idUser;
+	public long getId() {
+		return id;
 	}
-
 	/**
 	 * @param id the id to set
 	 */
-	public void setIdUser(Long id) {
-		this.idUser = id;
+	public void setId(long id) {
+		this.id = id;
 	}
-
-	/**
-	 * @return the correo
-	 */
-	public String getCorreo() {
-		return correo;
-	}
-
-	/**
-	 * @param correo the correo to set
-	 */
-	public void setCorreo(String correo) {
-		this.correo = correo;
-	}
-
 	/**
 	 * @return the nombre
 	 */
 	public String getNombre() {
 		return nombre;
 	}
-
 	/**
 	 * @param nombre the nombre to set
 	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
 	/**
-	 * @return the password
+	 * @return the correo
 	 */
-	public String getPassword() {
-		return password;
+	public String getCorreo() {
+		return correo;
 	}
-
 	/**
-	 * @param password the password to set
+	 * @param correo the correo to set
 	 */
-	public void setPassword(String password) {
-		this.password = password;
+	public void setCorreo(String correo) {
+		this.correo = correo;
 	}
-
 	/**
-	 * @return the num_cel
+	 * @return the telefono
 	 */
-	public String getNum_cel() {
-		return num_cel;
+	public String getTelefono() {
+		return telefono;
 	}
-
 	/**
-	 * @param num_cel the num_cel to set
+	 * @param telefono the telefono to set
 	 */
-	public void setNum_cel(String num_cel) {
-		this.num_cel = num_cel;
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
-
 	/**
-	 * @return the rol
-	 */
-	public String getRol() {
-		return rol;
-	}
-
-	/**
-	 * @param rol the rol to set
-	 */
-	public void setRol(String rol) {
-		this.rol = rol;
-	}
-
-	/**
-	 * @return the link_facebook
-	 */
-	public String getLink_facebook() {
-		return link_facebook;
-	}
-
-	/**
-	 * @param link_facebook the link_facebook to set
-	 */
-	public void setLink_facebook(String link_facebook) {
-		this.link_facebook = link_facebook;
-	}
-
-	/**
-	 * @return the token_facebook
+	 * @return the token
 	 */
 	public String getToken() {
 		return token;
 	}
-
 	/**
-	 * @param token_facebook the token_facebook to set
+	 * @param token the token to set
 	 */
 	public void setToken(String token) {
 		this.token = token;
 	}
-
+	/**
+	 * @return the link_facebook
+	 */
+	public boolean isLink_facebook() {
+		return link_facebook;
+	}
+	/**
+	 * @param link_facebook the link_facebook to set
+	 */
+	public void setLink_facebook(boolean link_facebook) {
+		this.link_facebook = link_facebook;
+	}
+	/**
+	 * @return the contrasena
+	 */
+	public String getContrasena() {
+		return contrasena;
+	}
+	/**
+	 * @param contrasena the contrasena to set
+	 */
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+	/**
+	 * @return the tipo
+	 */
+	public String getTipo() {
+		return tipo;
+	}
+	/**
+	 * @param tipo the tipo to set
+	 */
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	/**
+	 * @return the imagen
+	 */
+	public byte[] getImagen() {
+		return imagen;
+	}
+	/**
+	 * @param imagen the imagen to set
+	 */
+	public void setImagen(byte[] imagen) {
+		this.imagen = imagen;
+	}
+	
+	
 }
