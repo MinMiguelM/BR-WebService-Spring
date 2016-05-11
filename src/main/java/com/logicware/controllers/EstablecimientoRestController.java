@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.logicware.entities.Establishment;
-import com.logicware.entities.User;
-import com.logicware.repositories.EstablishmentRepository;
+import com.logicware.entities.Establecimiento;
+import com.logicware.entities.Usuario;
+import com.logicware.repositories.EstablecimientoRepository;
 
 /**
  * @author miguel
@@ -19,9 +19,9 @@ import com.logicware.repositories.EstablishmentRepository;
  */
 @RestController
 @RequestMapping("/establishment")
-public class EstablishmentRestController {
+public class EstablecimientoRestController {
 	
-	@Autowired private EstablishmentRepository establishmentRepository;
+	@Autowired private EstablecimientoRepository establishmentRepository;
 	
 	/**
 	 * Nombre: getAll
@@ -31,7 +31,7 @@ public class EstablishmentRestController {
 	 * 				se retonar la lista de todos los establecimientos en el sistema
 	 */
 	@RequestMapping(value="/getAll", method=RequestMethod.GET)
-	Collection<Establishment> getAll(){
+	Collection<Establecimiento> getAll(){
 		return establishmentRepository.findAll();
 	}
 	
@@ -44,21 +44,21 @@ public class EstablishmentRestController {
 	 * 				al sistema
 	 */
 	@RequestMapping(value="/add",method=RequestMethod.POST)
-	Establishment add(@RequestBody Establishment input){
+	Establecimiento add(@RequestBody Establecimiento input){
 		return establishmentRepository.save(input);
 	}
 	
 	/**
-	 * Nombre: getByName
+	 * Nombre: getByNombre
 	 * Entradas: El nombre o parte de el, del establecimiento
 	 * Salidas: Una lista con todo los establecimientos con el nombre dado
 	 * Descripcion: Dado un nombre como entrada este se encarga de buscar en la
 	 * 				base de datos dicho o dichos establecimientos
 	 */
-	@RequestMapping(value="/getByName/{name}", method=RequestMethod.GET)
-	Collection<Establishment> getByName(@PathVariable String name){
-		name = "%" + name + "%";
-		return establishmentRepository.findByNombre(name);
+	@RequestMapping(value="/getByNombre/{nombre}", method=RequestMethod.GET)
+	Collection<Establecimiento> getByNombre(@PathVariable String nombre){
+		nombre = "%" + nombre + "%";
+		return establishmentRepository.findByNombre(nombre);
 	}
 	
 }

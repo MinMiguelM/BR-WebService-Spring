@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.logicware.entities.User;
-import com.logicware.repositories.UserRepository;
+import com.logicware.entities.Usuario;
+import com.logicware.repositories.UsuarioRepository;
 
 /**
  * @author ASUS
@@ -25,9 +25,9 @@ import com.logicware.repositories.UserRepository;
  */
 @RestController
 @RequestMapping("/user")
-public class UserRestController {
+public class UsuarioRestController {
 	
-	@Autowired private UserRepository userRepository;
+	@Autowired private UsuarioRepository userRepository;
 	
 	/**
 	 * Nombre: getAll
@@ -37,7 +37,7 @@ public class UserRestController {
 	 * 				se retonar la lista de todos los usuarios en el sistema
 	 */
 	@RequestMapping(value="/getAll", method=RequestMethod.GET)
-	Collection<User> getAll(){
+	Collection<Usuario> getAll(){
 		return userRepository.findAll();
 	}
 	
@@ -50,7 +50,7 @@ public class UserRestController {
 	 * 				al sistema
 	 */
 	@RequestMapping(value="/add", method=RequestMethod.POST)
-	User add(@RequestBody User input){
+	Usuario add(@RequestBody Usuario input){
 		return userRepository.save(input);
 	}
 	
@@ -62,7 +62,7 @@ public class UserRestController {
 	 * 				base de datos dicho usuario
 	 */
 	@RequestMapping(value="/getByCorreo/\"{correo}\"", method=RequestMethod.GET)
-	User getByCorreo(@PathVariable String correo){
+	Usuario getByCorreo(@PathVariable String correo){
 		return userRepository.findByCorreo(correo);
 	}
 	
@@ -74,7 +74,7 @@ public class UserRestController {
 	 * 				base de datos dicho usuario
 	 */
 	@RequestMapping(value="/getByToken/{token}", method=RequestMethod.GET)
-	User getByToken(@PathVariable String token){
+	Usuario getByToken(@PathVariable String token){
 		return userRepository.findByToken(token);
 	}
 	
@@ -87,8 +87,8 @@ public class UserRestController {
 	 * 
 	 */
 	@RequestMapping(value="/updateToken/{newToken}&\"{correo}\"", method=RequestMethod.PUT)
-	User updateToken(@PathVariable String newToken,@PathVariable String correo){
-		User u = userRepository.findByCorreo(correo);
+	Usuario updateToken(@PathVariable String newToken,@PathVariable String correo){
+		Usuario u = userRepository.findByCorreo(correo);
 		u.setToken(newToken);
 		return userRepository.save(u);
 	}

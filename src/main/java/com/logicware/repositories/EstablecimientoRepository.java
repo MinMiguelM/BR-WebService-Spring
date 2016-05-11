@@ -7,14 +7,14 @@ import java.util.Collection;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.logicware.entities.Establishment;
-import com.logicware.entities.User;
+import com.logicware.entities.Establecimiento;
+import com.logicware.entities.Usuario;
 
 /**
  * @author miguel
  *
  */
-public interface EstablishmentRepository extends JpaRepository<Establishment, Long>{
+public interface EstablecimientoRepository extends JpaRepository<Establecimiento, Long>{
 	
 	/**
 	 * Nombre: findAllByUser
@@ -24,7 +24,7 @@ public interface EstablishmentRepository extends JpaRepository<Establishment, Lo
 	 * Descripcion: Encuentra los establecimientos por un usuario dado
 	 * 				
 	 */
-	Collection<Establishment> findAllByUser(User user);
+	Collection<Establecimiento> findAllByUsuario(Usuario usuario);
 	
 	/**
 	 * Nombre: findByName
@@ -34,5 +34,5 @@ public interface EstablishmentRepository extends JpaRepository<Establishment, Lo
 	 * Descripcion: Encuentra los establecimientos por un nombre o parte de el dada
 	 * 				
 	 */
-	Collection<Establishment> findByNombre(String name);
+	Collection<Establecimiento> findByNombre(String nombre);
 }

@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
@@ -22,15 +24,15 @@ import javax.persistence.UniqueConstraint;
  */
 @Entity
 @NamedQueries({
-	@NamedQuery(name = "User.findByToken",query = "select u from User u where u.token = ?"),
-	@NamedQuery(name = "User.findByCorreo",query = "select u from User u where u.correo = ?")
+	@NamedQuery(name = "User.findByToken",query = "select u from Usuario u where u.token = ?"),
+	@NamedQuery(name = "User.findByCorreo",query = "select u from Usuario u where u.correo = ?")
 })
-public class User implements Serializable{
+public class Usuario implements Serializable{
 	
 	@Id
 	@GeneratedValue
-	@Column(name = "ID")
-	private long id;
+	@Column(name = "IDUSUARIO")
+	private Long idUsuario;
 	private String nombre;
 	@Column(unique = true)
 	private String correo;
@@ -42,21 +44,21 @@ public class User implements Serializable{
 	private String tipo;
 	@Lob
 	private byte[] imagen;
-	@OneToMany(mappedBy = "user")
-	private Collection<Establishment> establecimientos ;
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Collection<Establecimiento> establecimientos;
 	
 	/**
 	 * @return the id
 	 */
-	public long getId() {
-		return id;
+	public Long getIdUsuario() {
+		return idUsuario;
 	}
 	
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(long id) {
-		this.id = id;
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 	
 	/**
@@ -169,5 +171,19 @@ public class User implements Serializable{
 	 */
 	public void setImagen(byte[] imagen) {
 		this.imagen = imagen;
+	}
+	
+	/**
+	 * @return
+	 */
+	public Collection<Establecimiento> getEstablecimientos(){
+		return this.establecimientos;
+	}
+	
+	/**
+	 * @param establecimientos the establecimientos to set
+	 */
+	public void setEstablecimientos(Collection<Establecimiento> establecimientos) {
+		this.establecimientos = establecimientos;
 	}
 }

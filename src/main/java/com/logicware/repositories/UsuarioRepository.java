@@ -3,7 +3,7 @@ package com.logicware.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-import com.logicware.entities.User;
+import com.logicware.entities.Usuario;
 
 /**
  * @author ASUS
@@ -11,7 +11,7 @@ import com.logicware.entities.User;
  * pueden aplicar sobre la entidad User
  */
 //@RepositoryRestResource
-public interface UserRepository extends JpaRepository<User,Long>{
+public interface UsuarioRepository extends JpaRepository<Usuario,Long>{
 	
 	/**
 	 * Nombre: findyByCorreo
@@ -21,7 +21,7 @@ public interface UserRepository extends JpaRepository<User,Long>{
 	 * Descripcion: Encuentra un usuario dado el correo con el que
 	 * 				se registro
 	 */
-	User findByCorreo(String correo);
+	Usuario findByCorreo(String correo);
 	
 	/**
 	 * Nombre: findByToken
@@ -31,5 +31,5 @@ public interface UserRepository extends JpaRepository<User,Long>{
 	 * Descripcion: Encuentra un usuario dado el token que se genero en
 	 * 				el momento que se registro.
 	 */
-	User findByToken(String token);
+	Usuario findByToken(String token);
 }
