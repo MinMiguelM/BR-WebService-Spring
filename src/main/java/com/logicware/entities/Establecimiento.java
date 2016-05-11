@@ -1,9 +1,12 @@
 package com.logicware.entities;
 
 import java.io.Serializable;
+import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -11,6 +14,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 
 /**
  * Entidad que representara un establecimiento.
@@ -39,7 +43,13 @@ public class Establecimiento implements Serializable{
 	@JoinColumn(name="IDUSUARIO",referencedColumnName="IDUSUARIO")
 	@ManyToOne
 	private Usuario usuario;
-
+	
+	@OneToMany(mappedBy = "establecimiento",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Collection<Evento> eventos;
+	
+	@OneToMany(mappedBy = "establecimiento",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Collection<Reserva> reservas;
+	
 	/**
 	 * @return the id
 	 */
