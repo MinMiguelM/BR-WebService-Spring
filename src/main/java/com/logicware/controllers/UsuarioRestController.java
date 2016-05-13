@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.logicware.controllers;
 
 import java.util.Collection;
@@ -19,7 +16,6 @@ import com.logicware.entities.Usuario;
 import com.logicware.repositories.UsuarioRepository;
 
 /**
- * @author ASUS
  * Encargado de recibir los mensajes del cliente. Estos mensajes
  * estan relacionados con la entidad usuario
  */

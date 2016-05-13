@@ -6,7 +6,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import com.logicware.entities.Usuario;
 
 /**
- * @author ASUS
  * Este repositorio se encarga de guardar las consultas que se
  * pueden aplicar sobre la entidad User
  */

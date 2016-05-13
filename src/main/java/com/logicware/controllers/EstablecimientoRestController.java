@@ -14,8 +14,8 @@ import com.logicware.entities.Usuario;
 import com.logicware.repositories.EstablecimientoRepository;
 
 /**
- * @author miguel
- *
+ *	Encargado de recibir los mensajes del cliente. Estos mensajes
+ * 	estan relacionados con la entidad Establecimiento
  */
 @RestController
 @RequestMapping("/establishment")

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.logicware.entities;
 
 import java.io.Serializable;
@@ -25,8 +22,8 @@ import javax.persistence.UniqueConstraint;
 
 
 /**
- * @author Pablo Gaitan
- *
+ * Entidad que representa el evento creado por un usuario
+ * o por un establecimiento.
  */
 @Entity
 public class Evento implements Serializable {
@@ -39,24 +36,29 @@ public class Evento implements Serializable {
 	private Date fecha_fin;
 	private String descripcion;
 	private String titulo;
+	
 	@JoinColumn(name = "IDIUSUARIO",referencedColumnName = "IDIUSUARIO")
 	@ManyToOne
 	private Usuario usuario;
+	
 	@JoinColumn(name = "IDESTABLECIMIENTO",referencedColumnName = "IDESTABLECIMIENTO")
 	@ManyToOne
 	private Establecimiento establecimiento;
+	
 	/**
 	 * @return the idEvento
 	 */
 	public Long getIdEvento() {
 		return idEvento;
 	}
+	
 	/**
 	 * @param idEvento the idEvento to set
 	 */
 	public void setIdEvento(Long idEvento) {
 		this.idEvento = idEvento;
 	}
+	
 	/**
 	 * @return the fecha_inicio
 	 */
@@ -105,18 +107,32 @@ public class Evento implements Serializable {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
+	
 	/**
 	 * @return the usuario
 	 */
-	public Usuario getUsuario() {
+	/*public Usuario getUsuario() {
 		return usuario;
-	}
+	}*/
+	
 	/**
 	 * @param usuario the usuario to set
 	 */
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
-	
+
+	/**
+	 * @return the establecimiento
+	 */
+	/*public Establecimiento getEstablecimiento() {
+		return establecimiento;
+	}*/
+
+	/**
+	 * @param establecimiento the establecimiento to set
+	 */
+	public void setEstablecimiento(Establecimiento establecimiento) {
+		this.establecimiento = establecimiento;
+	}
 }

@@ -50,6 +50,12 @@ public class Establecimiento implements Serializable{
 	@OneToMany(mappedBy = "establecimiento",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Collection<Reserva> reservas;
 	
+	@OneToMany(mappedBy = "establecimiento",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Collection<Producto> productos;
+	
+	@OneToMany(mappedBy = "establecimiento",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Collection<ComentarioYCalificacion> comentariosYCalificaciones;
+	
 	/**
 	 * @return the id
 	 */
@@ -181,5 +187,61 @@ public class Establecimiento implements Serializable{
 	 */
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}		
+	}
+
+	/**
+	 * @return the eventos
+	 */
+	public Collection<Evento> getEventos() {
+		return eventos;
+	}
+
+	/**
+	 * @param eventos the eventos to set
+	 */
+	public void setEventos(Collection<Evento> eventos) {
+		this.eventos = eventos;
+	}
+
+	/**
+	 * @return the reservas
+	 */
+	public Collection<Reserva> getReservas() {
+		return reservas;
+	}
+
+	/**
+	 * @param reservas the reservas to set
+	 */
+	public void setReservas(Collection<Reserva> reservas) {
+		this.reservas = reservas;
+	}
+
+	/**
+	 * @return the productos
+	 */
+	public Collection<Producto> getProductos() {
+		return productos;
+	}
+
+	/**
+	 * @param productos the productos to set
+	 */
+	public void setProductos(Collection<Producto> productos) {
+		this.productos = productos;
+	}
+
+	/**
+	 * @return the comentariosYCalificaciones
+	 */
+	public Collection<ComentarioYCalificacion> getComentariosYCalificaciones() {
+		return comentariosYCalificaciones;
+	}
+
+	/**
+	 * @param comentariosYCalificaciones the comentariosYCalificaciones to set
+	 */
+	public void setComentariosYCalificaciones(Collection<ComentarioYCalificacion> comentariosYCalificaciones) {
+		this.comentariosYCalificaciones = comentariosYCalificaciones;
+	}	
 }

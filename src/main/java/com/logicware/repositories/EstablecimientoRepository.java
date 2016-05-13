@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.logicware.repositories;
 
 import java.util.Collection;
@@ -11,7 +8,6 @@ import com.logicware.entities.Establecimiento;
 import com.logicware.entities.Usuario;
 
 /**
- * @author miguel
  *
  */
 public interface EstablecimientoRepository extends JpaRepository<Establecimiento, Long>{

@@ -21,7 +21,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.UniqueConstraint;
 
 /**
- * @author ASUS
  * Entidad usuario que es representada por varios atributos
  */
 @Entity
@@ -35,6 +34,7 @@ public class Usuario implements Serializable{
 	@GeneratedValue
 	@Column(name = "IDUSUARIO")
 	private Long idUsuario;
+	
 	private String nombre;
 	@Column(unique = true)
 	private String correo;
@@ -46,6 +46,7 @@ public class Usuario implements Serializable{
 	private String tipo;
 	@Lob
 	private byte[] imagen;
+	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Collection<Establecimiento> establecimientos;
 	
@@ -54,6 +55,9 @@ public class Usuario implements Serializable{
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Collection<Reserva> reservas;
+	
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Collection<Usuario> comentariosYCalificaciones;
 	
 	/**
 	 * @return the id
@@ -193,5 +197,47 @@ public class Usuario implements Serializable{
 	 */
 	public void setEstablecimientos(Collection<Establecimiento> establecimientos) {
 		this.establecimientos = establecimientos;
+	}
+
+	/**
+	 * @return the eventos
+	 */
+	public Collection<Evento> getEventos() {
+		return eventos;
+	}
+
+	/**
+	 * @param eventos the eventos to set
+	 */
+	public void setEventos(Collection<Evento> eventos) {
+		this.eventos = eventos;
+	}
+
+	/**
+	 * @return the reservas
+	 */
+	public Collection<Reserva> getReservas() {
+		return reservas;
+	}
+
+	/**
+	 * @param reservas the reservas to set
+	 */
+	public void setReservas(Collection<Reserva> reservas) {
+		this.reservas = reservas;
+	}
+
+	/**
+	 * @return the comentariosYCalificaciones
+	 */
+	public Collection<Usuario> getComentariosYCalificaciones() {
+		return comentariosYCalificaciones;
+	}
+
+	/**
+	 * @param comentariosYCalificaciones the comentariosYCalificaciones to set
+	 */
+	public void setComentariosYCalificaciones(Collection<Usuario> comentariosYCalificaciones) {
+		this.comentariosYCalificaciones = comentariosYCalificaciones;
 	}
 }
