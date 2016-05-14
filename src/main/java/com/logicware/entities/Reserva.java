@@ -3,6 +3,7 @@ package com.logicware.entities;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -12,6 +13,7 @@ import javax.persistence.ManyToOne;
  * Entidad que representa la reserva que un usuario hace
  * a un establecimiento
  */
+@Entity
 public class Reserva implements Serializable{
 
 	@Id
@@ -21,7 +23,7 @@ public class Reserva implements Serializable{
 	private String estado;
 	private long cantidad_personas;
 	
-	@JoinColumn(name = "IDIUSUARIO",referencedColumnName = "IDIUSUARIO")
+	@JoinColumn(name = "IDUSUARIO",referencedColumnName = "IDUSUARIO")
 	@ManyToOne
 	private Usuario usuario;
 	

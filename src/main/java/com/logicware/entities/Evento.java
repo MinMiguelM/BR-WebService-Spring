@@ -37,7 +37,7 @@ public class Evento implements Serializable {
 	private String descripcion;
 	private String titulo;
 	
-	@JoinColumn(name = "IDIUSUARIO",referencedColumnName = "IDIUSUARIO")
+	@JoinColumn(name = "IDUSUARIO",referencedColumnName = "IDUSUARIO")
 	@ManyToOne
 	private Usuario usuario;
 	

@@ -57,7 +57,7 @@ public class Usuario implements Serializable{
 	private Collection<Reserva> reservas;
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private Collection<Usuario> comentariosYCalificaciones;
+	private Collection<ComentarioYCalificacion> comentariosYCalificaciones;
 	
 	/**
 	 * @return the id
@@ -230,14 +230,14 @@ public class Usuario implements Serializable{
 	/**
 	 * @return the comentariosYCalificaciones
 	 */
-	public Collection<Usuario> getComentariosYCalificaciones() {
+	public Collection<ComentarioYCalificacion> getComentariosYCalificaciones() {
 		return comentariosYCalificaciones;
 	}
 
 	/**
 	 * @param comentariosYCalificaciones the comentariosYCalificaciones to set
 	 */
-	public void setComentariosYCalificaciones(Collection<Usuario> comentariosYCalificaciones) {
+	public void setComentariosYCalificaciones(Collection<ComentarioYCalificacion> comentariosYCalificaciones) {
 		this.comentariosYCalificaciones = comentariosYCalificaciones;
 	}
 }
