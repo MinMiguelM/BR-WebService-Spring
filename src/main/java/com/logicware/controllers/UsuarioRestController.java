@@ -88,4 +88,39 @@ public class UsuarioRestController {
 		u.setToken(newToken);
 		return userRepository.save(u);
 	}
+	
+	/**
+	 * Nombre: updateDatos
+	 * Entradas: los datos a modificar y el correo original
+	 * Salidas: El usuario con los datos actualizados
+	 * Descripcion: Dado un correo, se busca dicho usuario en la base de datos
+	 * 				y se actualiza el nombre, el telefono, la foto y el correo
+	 * 
+	 */
+	@RequestMapping(value="/updateDatos/{newNombre}&{newTelefono}&\"{newEmail}\"&{newFoto}&\"{correo}\"", method=RequestMethod.PUT)
+	Usuario updateDatos(@PathVariable String newNombre,@PathVariable String newTelefono,@PathVariable String newEmail,byte[] newFoto,@PathVariable String correo){
+		Usuario u = userRepository.findByCorreo(correo);
+		u.setNombre(newNombre);
+		u.setTelefono(newTelefono);
+		u.setImagen(newFoto);
+		u.setCorreo(newEmail);
+		return userRepository.save(u);
+	}
+	
+	/**
+	 * Nombre: updateContrasena
+	 * Entradas: la nueva contraseña y el correo 
+	 * Salidas: El usuario con la contraseña actualizada
+	 * Descripcion: Dado un correo, se busca dicho usuario en la base de datos
+	 * 				y se actualiza la contraseña
+	 * 
+	 */
+	@RequestMapping(value="/updateContrasena/{newpass}&\"{correo}\"", method=RequestMethod.PUT)
+	Usuario updateContrasena(@PathVariable String newpass,@PathVariable String correo){
+		Usuario u = userRepository.findByCorreo(correo);
+		u.setContrasena(newpass);
+		return userRepository.save(u);
+	}
+	
+	
 }
