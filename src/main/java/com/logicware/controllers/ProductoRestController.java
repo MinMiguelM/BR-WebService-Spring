@@ -46,4 +46,9 @@ public class ProductoRestController {
 	Collection<Producto> getAll(){
 		return productoRepository.findAll();
 	}
+	
+	@RequestMapping(value = "/update", method=RequestMethod.PUT)
+	Producto update(@RequestBody Producto item){
+		return productoRepository.save(item);
+	}
 }

@@ -45,4 +45,15 @@ public class ComentarioYCalificacionRestController {
 	Collection<ComentarioYCalificacion> getAll(){
 		return comentarioYCalificacionRepository.findAll();
 	}
+	
+	/**
+	 * Nombre : update
+	 * Entradas: La tupla de la entidad que sera actualizada
+	 * Salidas: la tupla actualizada
+	 * Descripción: actualiza la tupla que llega en la base de datos.
+	 */
+	@RequestMapping(value = "/update", method=RequestMethod.PUT)
+	ComentarioYCalificacion update(@RequestBody ComentarioYCalificacion coments){
+		return comentarioYCalificacionRepository.save(coments);
+	}
 }

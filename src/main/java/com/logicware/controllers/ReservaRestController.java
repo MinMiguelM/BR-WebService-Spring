@@ -46,5 +46,10 @@ public class ReservaRestController {
 	Reserva add(@RequestBody Reserva input){
 		return reservaRepository.save(input);
 	}
+	
+	@RequestMapping(value = "/update", method=RequestMethod.PUT)
+	Reserva update(@RequestBody Reserva reserva){
+		return reservaRepository.save(reserva);
+	}
 
 }

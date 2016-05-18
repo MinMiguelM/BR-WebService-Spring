@@ -61,4 +61,13 @@ public class EstablecimientoRestController {
 		return establishmentRepository.findByNombre(nombre);
 	}
 	
+	@RequestMapping(value = "/update", method=RequestMethod.PUT)
+	Establecimiento update(@RequestBody Establecimiento event){
+		return establishmentRepository.save(event);
+	}
+	
+	@RequestMapping(value = "/getByTipo/{tipo}", method = RequestMethod.GET)
+	Collection<Establecimiento> getByTipo(@PathVariable String tipo){
+		return establishmentRepository.findByTipo(tipo);
+	}
 }

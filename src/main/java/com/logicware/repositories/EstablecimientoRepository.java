@@ -31,4 +31,12 @@ public interface EstablecimientoRepository extends JpaRepository<Establecimiento
 	 * 				
 	 */
 	Collection<Establecimiento> findByNombre(String nombre);
+	
+	/**
+	 * Nombre: findByTipo
+	 * Entradas: el tipo de establecimiento de la cual se desea la lista
+	 * Salidas: Una lista con todos los establecimientos de tipo bar o restaurante
+	 * Descripción: Busque y trae todos los establecimientos de un tipo específico
+	 */
+	Collection<Establecimiento> findByTipo(String tipo);
 }

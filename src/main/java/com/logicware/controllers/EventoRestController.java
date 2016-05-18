@@ -46,4 +46,9 @@ public class EventoRestController {
 	Collection<Evento> getAll(){
 		return eventoRepository.findAll();
 	}
+	
+	@RequestMapping(value = "/update", method=RequestMethod.PUT)
+	Evento update(@RequestBody Evento event){
+		return eventoRepository.save(event);
+	}
 }
