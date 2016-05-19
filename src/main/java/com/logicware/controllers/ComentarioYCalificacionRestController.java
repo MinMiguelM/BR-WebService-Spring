@@ -1,5 +1,7 @@
 package com.logicware.controllers;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.logicware.entities.ComentarioYCalificacion;
+import com.logicware.entities.Usuario;
 import com.logicware.repositories.ComentarioYCalificacionRepository;
 
 /**
@@ -29,5 +32,28 @@ public class ComentarioYCalificacionRestController {
 	@RequestMapping(value="/add", method=RequestMethod.POST)
 	ComentarioYCalificacion add(@RequestBody ComentarioYCalificacion input){
 		return comentarioYCalificacionRepository.save(input);
+	}
+	
+	/**
+	 * Nombre: getAll
+	 * Entradas: -
+	 * Salidas: Una lista con todo los comentarios y calificaciones
+	 * Descripcion: dada una solicitud get hecha en comments/getAll
+	 * 				se retonar la lista de todos los comentarios y calificaciones en el sistema
+	 */
+	@RequestMapping(value="/getAll", method=RequestMethod.GET)
+	Collection<ComentarioYCalificacion> getAll(){
+		return comentarioYCalificacionRepository.findAll();
+	}
+	
+	/**
+	 * Nombre : update
+	 * Entradas: La tupla de la entidad que sera actualizada
+	 * Salidas: la tupla actualizada
+	 * Descripción: actualiza la tupla que llega en la base de datos.
+	 */
+	@RequestMapping(value = "/update", method=RequestMethod.PUT)
+	ComentarioYCalificacion update(@RequestBody ComentarioYCalificacion coments){
+		return comentarioYCalificacionRepository.save(coments);
 	}
 }

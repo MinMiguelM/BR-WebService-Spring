@@ -74,18 +74,8 @@ public class UsuarioRestController {
 		return userRepository.findByToken(token);
 	}
 	
-	/**
-	 * Nombre: updateToken
-	 * Entradas: El token nuevo del usuario identificado con un correo
-	 * Salidas: El usuario con el token actualizado
-	 * Descripcion: Dado un correo, se busca dicho usuario en la base de datos
-	 * 				y se actualiza el token.
-	 * 
-	 */
-	@RequestMapping(value="/updateToken/{newToken}&\"{correo}\"", method=RequestMethod.PUT)
-	Usuario updateToken(@PathVariable String newToken,@PathVariable String correo){
-		Usuario u = userRepository.findByCorreo(correo);
-		u.setToken(newToken);
-		return userRepository.save(u);
+	@RequestMapping(value = "/update", method=RequestMethod.PUT)
+	Usuario update(@RequestBody Usuario user){
+		return userRepository.save(user);
 	}
 }
