@@ -74,7 +74,7 @@ public class UsuarioRestController {
 		return userRepository.findByToken(token);
 	}
 	
-	@RequestMapping(value = "/update", method=RequestMethod.PUT)
+	@RequestMapping(value = "/update", method=RequestMethod.POST)
 	Usuario update(@RequestBody Usuario user){
 		return userRepository.save(user);
 	}
