@@ -74,6 +74,12 @@ public class UsuarioRestController {
 		return userRepository.findByToken(token);
 	}
 	
+	/**
+	 * Nombre : update
+	 * Entradas: La tupla de la entidad que sera actualizada
+	 * Salidas: la tupla actualizada
+	 * Descripción: actualiza la tupla que llega en la base de datos.
+	 */
 	@RequestMapping(value = "/update", method=RequestMethod.POST)
 	Usuario update(@RequestBody Usuario user){
 		return userRepository.save(user);
