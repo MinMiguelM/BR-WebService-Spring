@@ -61,11 +61,24 @@ public class EstablecimientoRestController {
 		return establishmentRepository.findByNombre(nombre);
 	}
 	
-	@RequestMapping(value = "/update", method=RequestMethod.PUT)
+	/**
+	 * Nombre : update
+	 * Entradas: La tupla de la entidad que sera actualizada
+	 * Salidas: la tupla actualizada
+	 * Descripción: actualiza la tupla que llega en la base de datos.
+	 */
+	@RequestMapping(value = "/update", method=RequestMethod.POST)
 	Establecimiento update(@RequestBody Establecimiento event){
 		return establishmentRepository.save(event);
 	}
 	
+	/**
+	 * Nombre: getByTipo
+	 * Entradas: El tipo ya sea bar o restaurante del establecimiento
+	 * Salidas: Una lista con todo los establecimientos del tipo dado
+	 * Descripcion: Dado el tipo como entrada este se encarga de buscar en la
+	 * 				base de datos dicho o dichos establecimientos
+	 */
 	@RequestMapping(value = "/getByTipo/{tipo}", method = RequestMethod.GET)
 	Collection<Establecimiento> getByTipo(@PathVariable String tipo){
 		return establishmentRepository.findByTipo(tipo);

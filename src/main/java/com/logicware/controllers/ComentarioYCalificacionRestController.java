@@ -52,7 +52,7 @@ public class ComentarioYCalificacionRestController {
 	 * Salidas: la tupla actualizada
 	 * Descripción: actualiza la tupla que llega en la base de datos.
 	 */
-	@RequestMapping(value = "/update", method=RequestMethod.PUT)
+	@RequestMapping(value = "/update", method=RequestMethod.POST)
 	ComentarioYCalificacion update(@RequestBody ComentarioYCalificacion coments){
 		return comentarioYCalificacionRepository.save(coments);
 	}
