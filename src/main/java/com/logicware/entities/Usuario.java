@@ -47,16 +47,16 @@ public class Usuario implements Serializable{
 	@Lob
 	private byte[] imagen;
 	
-	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "usuario")
 	private Collection<Establecimiento> establecimientos;
 	
-	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "usuario")
 	private Collection<Evento> eventos;
 	
-	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "usuario")
 	private Collection<Reserva> reservas;
 	
-	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "usuario")
 	private Collection<ComentarioYCalificacion> comentariosYCalificaciones;
 	
 	/**
