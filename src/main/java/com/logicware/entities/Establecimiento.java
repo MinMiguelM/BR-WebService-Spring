@@ -22,7 +22,8 @@ import javax.persistence.OneToMany;
 @Entity
 @NamedQueries({
 	@NamedQuery(name = "Establecimiento.findByNombre",query= "select e from Establecimiento e where e.nombre like ?"),
-	@NamedQuery(name = "Establecimiento.findByTipo", query= "select e from Establecimiento e where e.tipo = ?")
+	@NamedQuery(name = "Establecimiento.findByTipo", query= "select e from Establecimiento e where e.tipo = ?"),
+	@NamedQuery(name = "Establecimiento.findAllByUsuario", query = "select e from Establecimiento e where e.usuario.idUsuario = ?")
 })
 public class Establecimiento implements Serializable{
 	

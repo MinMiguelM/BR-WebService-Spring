@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.logicware.entities.Establecimiento;
 import com.logicware.entities.Usuario;
 import com.logicware.repositories.EstablecimientoRepository;
+import com.logicware.repositories.UsuarioRepository;
 
 /**
  *	Encargado de recibir los mensajes del cliente. Estos mensajes
@@ -82,5 +83,17 @@ public class EstablecimientoRestController {
 	@RequestMapping(value = "/getByTipo/{tipo}", method = RequestMethod.GET)
 	Collection<Establecimiento> getByTipo(@PathVariable String tipo){
 		return establishmentRepository.findByTipo(tipo);
+	}
+	
+	/**
+	 * Nombre: getAllByUsuario
+	 * Entradas: El id del usuario dueño de los establecimientos
+	 * Salidas: Una lista con todo los establecimientos dado un usuario
+	 * Descripcion: Dado el id del usuario como entrada este se encarga de buscar en la
+	 * 				base de datos dicho o dichos establecimientos
+	 */
+	@RequestMapping(value = "/getAllByUsuario/{idUsuario}", method = RequestMethod.GET)
+	Collection<Establecimiento> getAllByUsuario(@PathVariable Long idUsuario){
+		return establishmentRepository.findAllByUsuario(idUsuario);
 	}
 }
