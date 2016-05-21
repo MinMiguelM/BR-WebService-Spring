@@ -45,16 +45,16 @@ public class Establecimiento implements Serializable{
 	@ManyToOne
 	private Usuario usuario;
 	
-	@OneToMany(mappedBy = "establecimiento",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "establecimiento")
 	private Collection<Evento> eventos;
 	
-	@OneToMany(mappedBy = "establecimiento",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "establecimiento")
 	private Collection<Reserva> reservas;
 	
-	@OneToMany(mappedBy = "establecimiento",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "establecimiento")
 	private Collection<Producto> productos;
 	
-	@OneToMany(mappedBy = "establecimiento",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "establecimiento")
 	private Collection<ComentarioYCalificacion> comentariosYCalificaciones;
 	
 	/**

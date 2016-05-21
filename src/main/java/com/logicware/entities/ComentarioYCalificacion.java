@@ -76,9 +76,9 @@ public class ComentarioYCalificacion implements Serializable{
 	/**
 	 * @return the usuario
 	 */
-	/*public Usuario getUsuario() {
+	public Usuario getUsuario() {
 		return usuario;
-	}*/
+	}
 
 	/**
 	 * @param usuario the usuario to set

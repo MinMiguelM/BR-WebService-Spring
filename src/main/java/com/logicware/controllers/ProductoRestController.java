@@ -47,7 +47,13 @@ public class ProductoRestController {
 		return productoRepository.findAll();
 	}
 	
-	@RequestMapping(value = "/update", method=RequestMethod.PUT)
+	/**
+	 * Nombre : update
+	 * Entradas: La tupla de la entidad que sera actualizada
+	 * Salidas: la tupla actualizada
+	 * Descripción: actualiza la tupla que llega en la base de datos.
+	 */
+	@RequestMapping(value = "/update", method=RequestMethod.POST)
 	Producto update(@RequestBody Producto item){
 		return productoRepository.save(item);
 	}
