@@ -7,12 +7,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  * La entidad que une los comentarios y la calificación, 
  * para cada uno de los establecimientos. Estos pueden
  * ser hechas por los usuarios.
  */
+@NamedQueries({
+	@NamedQuery(name = "ComentarioYCalificacion.findByEstablecimiento" , query="select c from ComentarioYCalificacion c where c.establecimient.idEstablecimiento = ?")
+})
 @Entity
 public class ComentarioYCalificacion implements Serializable{
 	
@@ -90,9 +95,9 @@ public class ComentarioYCalificacion implements Serializable{
 	/**
 	 * @return the establecimiento
 	 */
-	/*public Establecimiento getEstablecimiento() {
+	public Establecimiento getEstablecimiento() {
 		return establecimiento;
-	}*/
+	}
 
 	/**
 	 * @param establecimiento the establecimiento to set

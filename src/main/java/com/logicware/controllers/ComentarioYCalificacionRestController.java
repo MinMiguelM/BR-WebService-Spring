@@ -3,6 +3,7 @@ package com.logicware.controllers;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -55,5 +56,10 @@ public class ComentarioYCalificacionRestController {
 	@RequestMapping(value = "/update", method=RequestMethod.POST)
 	ComentarioYCalificacion update(@RequestBody ComentarioYCalificacion coments){
 		return comentarioYCalificacionRepository.save(coments);
+	}
+	
+	@RequestMapping(value = "/getByIdEstablecimiento/{id}", method=RequestMethod.GET)
+	Collection<ComentarioYCalificacion> getByIdEstablecimiento(@PathVariable Long id){
+		return comentarioYCalificacionRepository.findByEstablecimiento(id);
 	}
 }

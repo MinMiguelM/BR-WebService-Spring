@@ -1,5 +1,7 @@
 package com.logicware.repositories;
 
+import java.util.Collection;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.logicware.entities.ComentarioYCalificacion;
@@ -9,5 +11,7 @@ import com.logicware.entities.ComentarioYCalificacion;
  * pueden aplicar sobre la entidad ComentariYCalificacion
  */
 public interface ComentarioYCalificacionRepository extends JpaRepository<ComentarioYCalificacion, Long>{
+	
+	Collection<ComentarioYCalificacion> findByEstablecimiento(Long id);
 
 }
