@@ -16,7 +16,7 @@ import javax.persistence.NamedQuery;
  * ser hechas por los usuarios.
  */
 @NamedQueries({
-	@NamedQuery(name = "ComentarioYCalificacion.findByEstablecimiento" , query="select c from ComentarioYCalificacion c where c.establecimient.idEstablecimiento = ?")
+	@NamedQuery(name = "ComentarioYCalificacion.findByEstablecimiento" , query="select c from ComentarioYCalificacion c where c.establecimiento.idEstablecimiento = ?")
 })
 @Entity
 public class ComentarioYCalificacion implements Serializable{
