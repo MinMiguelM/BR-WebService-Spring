@@ -194,9 +194,9 @@ public class Establecimiento implements Serializable{
 	/**
 	 * @return the eventos
 	 */
-	public Collection<Evento> getEventos() {
+	/*public Collection<Evento> getEventos() {
 		return eventos;
-	}
+	}*/
 
 	/**
 	 * @param eventos the eventos to set
@@ -208,9 +208,9 @@ public class Establecimiento implements Serializable{
 	/**
 	 * @return the reservas
 	 */
-	public Collection<Reserva> getReservas() {
+	/*public Collection<Reserva> getReservas() {
 		return reservas;
-	}
+	}*/
 
 	/**
 	 * @param reservas the reservas to set

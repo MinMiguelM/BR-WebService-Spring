@@ -116,9 +116,9 @@ public class Evento implements Serializable {
 	/**
 	 * @return the usuario
 	 */
-	/*public Usuario getUsuario() {
+	public Usuario getUsuario() {
 		return usuario;
-	}*/
+	}
 	
 	/**
 	 * @param usuario the usuario to set
@@ -130,9 +130,9 @@ public class Evento implements Serializable {
 	/**
 	 * @return the establecimiento
 	 */
-	/*public Establecimiento getEstablecimiento() {
+	public Establecimiento getEstablecimiento() {
 		return establecimiento;
-	}*/
+	}
 
 	/**
 	 * @param establecimiento the establecimiento to set
