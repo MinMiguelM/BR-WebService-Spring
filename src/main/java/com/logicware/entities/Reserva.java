@@ -8,11 +8,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  * Entidad que representa la reserva que un usuario hace
  * a un establecimiento
  */
+@NamedQueries({
+	@NamedQuery(name = "Reserva.findByEstablecimiento",query = "select r from Reserva r where r.establecimiento.idEstablecimiento = ?"),
+	@NamedQuery(name = "Reserva.findByUsuario",query = "select r from Reserva r where r.usuario.idUsuario = ?")
+})
+
 @Entity
 public class Reserva implements Serializable{
 

@@ -3,11 +3,13 @@ package com.logicware.controllers;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.logicware.entities.Evento;
 import com.logicware.entities.Reserva;
 import com.logicware.entities.Usuario;
 import com.logicware.repositories.ReservaRepository;
@@ -57,5 +59,14 @@ public class ReservaRestController {
 	Reserva update(@RequestBody Reserva reserva){
 		return reservaRepository.save(reserva);
 	}
-
+	
+	@RequestMapping(value = "/getByIdEstablecimiento/{id}",method = RequestMethod.GET)
+	Collection<Reserva> findByEstablishment(@PathVariable Long id){
+		return reservaRepository.findByEstablecimiento(id);
+	}
+	
+	@RequestMapping(value = "/getByIdUsuario/{id}",method = RequestMethod.GET)
+	Collection<Reserva> findByUsuario(@PathVariable Long id){
+		return reservaRepository.findByUsuario(id);
+	}
 }
