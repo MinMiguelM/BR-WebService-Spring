@@ -59,11 +59,25 @@ public class EventoRestController {
 		return eventoRepository.save(event);
 	}
 	
+	/**
+	 * Nombre: getByEstablecimiento
+	 * Entradas: El id del establecimiento 
+	 * Salidas: Una lista con todos los eventos dado un establecimiento
+	 * Descripcion: Dado el id de un establecimiento como entrada este se encarga de buscar en la
+	 * 				base de datos dicho o dichos eventos
+	 */
 	@RequestMapping(value = "/getByIdEstablecimiento/{id}",method = RequestMethod.GET)
 	Collection<Evento> findByEstablishment(@PathVariable Long id){
 		return eventoRepository.findByEstablecimiento(id);
 	}
 	
+	/**
+	 * Nombre: getByUsuario
+	 * Entradas: El id del usuario 
+	 * Salidas: Una lista con todos los eventos dado un usuario
+	 * Descripcion: Dado el id de un usuario como entrada este se encarga de buscar en la
+	 * 				base de datos dicho o dichos eventos
+	 */
 	@RequestMapping(value = "/getByIdUsuario/{id}",method = RequestMethod.GET)
 	Collection<Evento> findByUsuario(@PathVariable Long id){
 		return eventoRepository.findByUsuario(id);

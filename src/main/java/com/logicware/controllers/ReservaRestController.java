@@ -60,11 +60,25 @@ public class ReservaRestController {
 		return reservaRepository.save(reserva);
 	}
 	
+	/**
+	 * Nombre: findByEstablishment
+	 * Entradas: El id del establecimiento 
+	 * Salidas: Una lista con todas las reservas dado un establecimiento
+	 * Descripcion: Dado el id de un establecimiento como entrada este se encarga de buscar en la
+	 * 				base de datos dicha o dichas reservas
+	 */
 	@RequestMapping(value = "/getByIdEstablecimiento/{id}",method = RequestMethod.GET)
 	Collection<Reserva> findByEstablishment(@PathVariable Long id){
 		return reservaRepository.findByEstablecimiento(id);
 	}
 	
+	/**
+	 * Nombre: findByUser
+	 * Entradas: El id del usuario 
+	 * Salidas: Una lista con todas las reservas dado un usuario
+	 * Descripcion: Dado el id de un usuario como entrada este se encarga de buscar en la
+	 * 				base de datos dicha o dichas reservas
+	 */
 	@RequestMapping(value = "/getByIdUsuario/{id}",method = RequestMethod.GET)
 	Collection<Reserva> findByUsuario(@PathVariable Long id){
 		return reservaRepository.findByUsuario(id);
