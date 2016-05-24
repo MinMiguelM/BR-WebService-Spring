@@ -25,6 +25,11 @@ import javax.persistence.UniqueConstraint;
  * Entidad que representa el evento creado por un usuario
  * o por un establecimiento.
  */
+
+@NamedQueries({
+	@NamedQuery(name = "Evento.findByEstablecimiento",query = "select e from Evento e where e.establecimiento.idEstablecimiento = ?"),
+	@NamedQuery(name = "Evento.findByUsuario",query = "select e from Evento e where e.usuario.idUsuario = ?")
+})
 @Entity
 public class Evento implements Serializable {
 	
@@ -111,9 +116,9 @@ public class Evento implements Serializable {
 	/**
 	 * @return the usuario
 	 */
-	/*public Usuario getUsuario() {
+	public Usuario getUsuario() {
 		return usuario;
-	}*/
+	}
 	
 	/**
 	 * @param usuario the usuario to set
@@ -125,9 +130,9 @@ public class Evento implements Serializable {
 	/**
 	 * @return the establecimiento
 	 */
-	/*public Establecimiento getEstablecimiento() {
+	public Establecimiento getEstablecimiento() {
 		return establecimiento;
-	}*/
+	}
 
 	/**
 	 * @param establecimiento the establecimiento to set

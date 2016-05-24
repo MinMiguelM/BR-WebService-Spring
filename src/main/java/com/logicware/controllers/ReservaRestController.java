@@ -3,11 +3,13 @@ package com.logicware.controllers;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.logicware.entities.Evento;
 import com.logicware.entities.Reserva;
 import com.logicware.entities.Usuario;
 import com.logicware.repositories.ReservaRepository;
@@ -57,5 +59,28 @@ public class ReservaRestController {
 	Reserva update(@RequestBody Reserva reserva){
 		return reservaRepository.save(reserva);
 	}
-
+	
+	/**
+	 * Nombre: findByEstablishment
+	 * Entradas: El id del establecimiento 
+	 * Salidas: Una lista con todas las reservas dado un establecimiento
+	 * Descripcion: Dado el id de un establecimiento como entrada este se encarga de buscar en la
+	 * 				base de datos dicha o dichas reservas
+	 */
+	@RequestMapping(value = "/getByIdEstablecimiento/{id}",method = RequestMethod.GET)
+	Collection<Reserva> findByEstablishment(@PathVariable Long id){
+		return reservaRepository.findByEstablecimiento(id);
+	}
+	
+	/**
+	 * Nombre: findByUser
+	 * Entradas: El id del usuario 
+	 * Salidas: Una lista con todas las reservas dado un usuario
+	 * Descripcion: Dado el id de un usuario como entrada este se encarga de buscar en la
+	 * 				base de datos dicha o dichas reservas
+	 */
+	@RequestMapping(value = "/getByIdUsuario/{id}",method = RequestMethod.GET)
+	Collection<Reserva> findByUsuario(@PathVariable Long id){
+		return reservaRepository.findByUsuario(id);
+	}
 }

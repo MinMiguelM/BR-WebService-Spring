@@ -8,7 +8,8 @@ import com.logicware.entities.Establecimiento;
 import com.logicware.entities.Usuario;
 
 /**
- *
+ * Este repositorio se encarga de guardar las consultas que se
+ * pueden aplicar sobre la entidad Establecimiento
  */
 public interface EstablecimientoRepository extends JpaRepository<Establecimiento, Long>{
 	
@@ -20,7 +21,7 @@ public interface EstablecimientoRepository extends JpaRepository<Establecimiento
 	 * Descripcion: Encuentra los establecimientos por un usuario dado
 	 * 				
 	 */
-	Collection<Establecimiento> findAllByUsuario(Usuario usuario);
+	Collection<Establecimiento> findAllByUsuario(Long idUsuario);
 	
 	/**
 	 * Nombre: findByName

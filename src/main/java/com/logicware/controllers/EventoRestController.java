@@ -3,6 +3,7 @@ package com.logicware.controllers;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -56,5 +57,29 @@ public class EventoRestController {
 	@RequestMapping(value = "/update", method=RequestMethod.POST)
 	Evento update(@RequestBody Evento event){
 		return eventoRepository.save(event);
+	}
+	
+	/**
+	 * Nombre: getByEstablecimiento
+	 * Entradas: El id del establecimiento 
+	 * Salidas: Una lista con todos los eventos dado un establecimiento
+	 * Descripcion: Dado el id de un establecimiento como entrada este se encarga de buscar en la
+	 * 				base de datos dicho o dichos eventos
+	 */
+	@RequestMapping(value = "/getByIdEstablecimiento/{id}",method = RequestMethod.GET)
+	Collection<Evento> findByEstablishment(@PathVariable Long id){
+		return eventoRepository.findByEstablecimiento(id);
+	}
+	
+	/**
+	 * Nombre: getByUsuario
+	 * Entradas: El id del usuario 
+	 * Salidas: Una lista con todos los eventos dado un usuario
+	 * Descripcion: Dado el id de un usuario como entrada este se encarga de buscar en la
+	 * 				base de datos dicho o dichos eventos
+	 */
+	@RequestMapping(value = "/getByIdUsuario/{id}",method = RequestMethod.GET)
+	Collection<Evento> findByUsuario(@PathVariable Long id){
+		return eventoRepository.findByUsuario(id);
 	}
 }

@@ -22,7 +22,8 @@ import javax.persistence.OneToMany;
 @Entity
 @NamedQueries({
 	@NamedQuery(name = "Establecimiento.findByNombre",query= "select e from Establecimiento e where e.nombre like ?"),
-	@NamedQuery(name = "Establecimiento.findByTipo", query= "select e from Establecimiento e where e.tipo = ?")
+	@NamedQuery(name = "Establecimiento.findByTipo", query= "select e from Establecimiento e where e.tipo = ?"),
+	@NamedQuery(name = "Establecimiento.findAllByUsuario", query = "select e from Establecimiento e where e.usuario.idUsuario = ?")
 })
 public class Establecimiento implements Serializable{
 	
@@ -193,9 +194,9 @@ public class Establecimiento implements Serializable{
 	/**
 	 * @return the eventos
 	 */
-	public Collection<Evento> getEventos() {
+	/*public Collection<Evento> getEventos() {
 		return eventos;
-	}
+	}*/
 
 	/**
 	 * @param eventos the eventos to set
@@ -207,9 +208,9 @@ public class Establecimiento implements Serializable{
 	/**
 	 * @return the reservas
 	 */
-	public Collection<Reserva> getReservas() {
+	/*public Collection<Reserva> getReservas() {
 		return reservas;
-	}
+	}*/
 
 	/**
 	 * @param reservas the reservas to set
@@ -235,9 +236,9 @@ public class Establecimiento implements Serializable{
 	/**
 	 * @return the comentariosYCalificaciones
 	 */
-	public Collection<ComentarioYCalificacion> getComentariosYCalificaciones() {
+	/*public Collection<ComentarioYCalificacion> getComentariosYCalificaciones() {
 		return comentariosYCalificaciones;
-	}
+	}*/
 
 	/**
 	 * @param comentariosYCalificaciones the comentariosYCalificaciones to set
