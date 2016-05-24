@@ -12,6 +12,13 @@ import com.logicware.entities.ComentarioYCalificacion;
  */
 public interface ComentarioYCalificacionRepository extends JpaRepository<ComentarioYCalificacion, Long>{
 	
+	/**
+	 * Nombre: findByEstablecimiento
+	 * Entradas: id del establecimiento
+	 * Salidas: Lista de comentarios del establecimiento con un id
+	 * Descripción: Trae de la base de datos una lista de comentarios
+	 * 				que le han hecho a un establecimiento en particular
+	 */
 	Collection<ComentarioYCalificacion> findByEstablecimiento(Long id);
 
 }

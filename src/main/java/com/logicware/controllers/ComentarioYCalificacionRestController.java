@@ -58,6 +58,12 @@ public class ComentarioYCalificacionRestController {
 		return comentarioYCalificacionRepository.save(coments);
 	}
 	
+	/**
+	 * Nombre: getByIdEstablecimiento
+	 * Entradas: id del establecimiento
+	 * Salidas: Una lista con los comentarios que le han hecho a dicho establecimiento
+	 * descripción: Busca los comentarios que le han hecho a un establecimiento.
+	 */
 	@RequestMapping(value = "/getByIdEstablecimiento/{id}", method=RequestMethod.GET)
 	Collection<ComentarioYCalificacion> getByIdEstablecimiento(@PathVariable Long id){
 		return comentarioYCalificacionRepository.findByEstablecimiento(id);
